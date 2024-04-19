@@ -57,6 +57,7 @@
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.18.2",
+        "@popperjs/core": "^2.11.8",
         "@swc/cli": "^0.1.63",
         "@swc/core": "^1.3.90",
         "@types/eslint": "^8.4.5",
@@ -80,13 +81,12 @@
         "prettier": "^2.7.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-popper": "^2.3.0",
+        "react-transition-group": "^4.4.5",
         "rimraf": "^3.0.2",
         "sass": "^1.63.6",
         "ts-jest": "^28.0.5",
         "tslib": "^2.4.0",
-        "@popperjs/core": "^2.11.8",
-        "react-popper": "^2.3.0",
-        "react-transition-group": "^4.4.5",
         "typescript": "^4.7.4"
     },
     "engines": {

@@ -2,10 +2,20 @@
 
 A modern React Datepicker.
 
-## Quick Setup
+## Install
 
-### Install
+```shell [npm]
+npm install @nixjs23n6/date-picker 
+```
 
-Install these dependencies:
+```shell [pnpm]
+pnpm add @nixjs23n6/date-picker 
+```
 
-`yarn add @nixjs23n6/date-picker`
+```shell [yarn]
+yarn add @nixjs23n6/date-picker 
+```
+
+```shell [bun]
+bun add --dev husky
+```
