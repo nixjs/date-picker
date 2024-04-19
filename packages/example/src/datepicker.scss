@@ -1,0 +1,210 @@
+html,
+body {
+    height: 100%;
+    scrollbar-width: none;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.42857143;
+}
+
+.calendar {
+    --base-calendar-transition: all 0.2s ease-in;
+    --base-calendar-cell-font-weight: 700;
+    --base-calendar-panel-background: #f5f5f5;
+    --base-calendar-panel-radius: 1rem;
+    --base-calendar-cell-date-background: #ffffff;
+    --base-calendar-cell-border-color: transparent;
+    --base-calendar-cell-width: 3.125rem;
+    --base-calendar-cell-height: 2.75rem;
+    --base-calendar-cell-padding-x: 2px;
+    --base-calendar-cell-padding-y: 2px;
+    --base-calendar-cell-hover-box-shadow: inset 0px 0px 0px 2px #0047ff;
+    --base-calendar-cell-border-width: 0;
+    --base-calendar-cell-hover-border-width: 0;
+    // --base-calendar-cell-hover-border-color: #0047ff;
+    --base-calendar-cell-today-border-width: 0;
+    --base-calendar-cell-today-background: #ffffff;
+    --base-calendar-cell-today-box-shadow: inset 0px 0px 0px 2px #0047ff;
+    --base-calendar-cell-today-hover-box-shadow: inset 0px 0px 0px 2px #0047ff;
+    // --base-calendar-cell-today-border-color: #0047ff;
+    --base-calendar-cell-today-hover-border-width: 0;
+    // --base-calendar-cell-today-hover-border-color: #0047ff;
+    --base-calendar-cell-offrange-color: #001754;
+    --base-calendar-cell-offrange-opacity: 0.5;
+    --base-calendar-cell-outrange-opacity: 0.5;
+
+    --base-calendar-arrow-border-radius: 50%;
+    --base-calendar-nav-button-size: 2.75rem;
+    --base-calendar-arrow-background-color: #ffffff;
+    --base-calendar-arrow-border-color: transparent;
+    --base-calendar-arrow-background-size: 80%;
+
+    --base-calendar-decade-select-background: #ffffff;
+    --base-calendar-decade-select-border-width: 0;
+    --base-calendar-decade-select-hover-border-width: 0;
+    --base-calendar-decade-select-height: 2.75rem;
+    --base-calendar-decade-select-hover-box-shadow: inset 0px 0px 0px 2px #0047ff;
+    --base-calendar-decade-select-arrow-background-size: 80%;
+    --base-calendar-decade-select-font-weight: 700;
+    --base-calendar-decade-select-hover-font-weight: 700;
+    --base-calendar-decade-select-width: fit-content;
+    --base-calendar-decade-padding-left: 1rem;
+    --base-calendar-decade-padding-right: 1rem;
+
+    --base-calendar-cell-selected-background: #0047ff;
+    --base-calendar-cell-selected-color: #ffffff;
+    --base-calendar-cell-today-selected-background: #0047ff;
+    --base-calendar-cell-today-selected-color: #ffffff;
+
+    --base-calendar-show-time-margin-top: 1rem;
+    --base-calendar-show-time-margin-bottom: 0;
+    --base-calendar-show-time-border-color: #e6e6e6;
+    --base-calendar-show-time-picker-margin-bottom: 0;
+    --base-calendar-show-time-padding-bottom: 0;
+    --base-calendar-footer-group-content: center;
+    --base-calendar-footer-button-border-width: 0;
+    --base-calendar-footer-button-background: #ffffff;
+    --base-calendar-footer-button-font-weight: 700;
+    --base-calendar-footer-button-padding-top: 0.75rem;
+    --base-calendar-footer-button-padding-bottom: 0.75rem;
+    --base-calendar-footer-button-padding-left: 1rem;
+    --base-calendar-footer-button-padding-right: 1rem;
+    --base-calendar-footer-x: 0.5rem;
+
+    .calendar-button,
+    .calendar-decade-select,
+    .calendar-navigation .calendar-next,
+    .calendar-navigation .calendar-prev,
+    .calendar-cell:not(
+            .calendar-cell-weekdays,
+            .calendar-cell-decade-selected,
+            .calendar-cell-date-selected,
+            .calendar-cell-date-offrange,
+            .calendar-cell-date-outrange,
+            .calendar-cell-month-offrange,
+            .calendar-cell-month-outrange,
+            .calendar-cell-decade-offrange,
+            .calendar-cell-decade-outrange
+        )
+        .calendar-cell-content {
+        filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.05));
+    }
+    &-navigation {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .calendar-next,
+        .calendar-prev {
+            transition: all 0.2s ease-in;
+            &:hover {
+                background: #d8e3ff;
+            }
+        }
+    }
+    &-header-view {
+        position: absolute;
+        inset: 0px 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-cell {
+        &-month-content,
+        &-decade-content {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        &-date {
+            &.date-range {
+                &--start,
+                &--middle,
+                &--end {
+                    --base-calendar-cell-background: #d8e3ff;
+                    --base-calendar-cell-today-hover-border-color: transparent;
+                    --base-calendar-cell-today-hover-background: #d8e3ff;
+                    --base-calendar-cell-offrange-background: #d8e3ff;
+                    --base-calendar-cell-date-background: #d8e3ff;
+                }
+                &--start,
+                &--end {
+                    --base-calendar-cell-border-radius: 0.25rem;
+                    --base-calendar-cell-radius: 0.25rem;
+                    .calendar-cell-date-content {
+                        --base-calendar-cell-date-color: #ffffff;
+                        --base-calendar-cell-date-background: #0047ff;
+                    }
+                }
+                &--start {
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    .calendar-cell-date-content {
+                        border-radius: var(--base-calendar-cell-border-radius);
+                    }
+                }
+                &--end {
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+                &--middle {
+                    .calendar-cell-date-content {
+                        --base-calendar-cell-date-color: #0047ff;
+                    }
+                    &:not(.calendar-cell-date-today) {
+                        --base-calendar-cell-radius: 0;
+                    }
+                    &.calendar-cell-date-offrange,
+                    &.calendar-cell-month-offrange,
+                    &.calendar-cell-decade-offrange {
+                        .calendar-cell-date-content {
+                            opacity: 0.3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.time-picker {
+    --base-time-picker-button-height: 1.5rem;
+    --base-time-picker-button-width: 3rem;
+    --base-time-picker-button-background-color: #ffffff;
+    --base-time-picker-button-radius: 0.25rem;
+    --base-time-picker-button-arrow-background-size: 40%;
+    --base-time-picker-button-up-rotate: rotate(-90deg);
+    --base-time-picker-button-down-rotate: rotate(90deg);
+    --base-time-picker-input-background-color: #ffffff;
+    --base-time-picker-input-font-size: 1rem;
+    --base-time-picker-input-font-weight: 700;
+    --base-time-picker-input-min-height: 3rem;
+    --base-time-picker-input-spacing-left: 0.25rem;
+    --base-time-picker-input-spacing-right: 0.25rem;
+    --base-time-picker-input-border-width: 0;
+    --base-time-picker-input-radius: 0.5rem;
+    --base-time-picker-button-hover-border-width: 0;
+
+    background: #f5f5f5;
+    border-radius: 1rem;
+    padding: 1rem;
+    .time-picker-down,
+    .time-picker-up {
+        filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.05));
+    }
+    &-input {
+        box-shadow: inset 0px 0px 0px 2px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.date-picker {
+    --base-date-picker-content-background: #f5f5f5;
+    --base-date-picker-content-border-color: #ffffff;
+    --base-date-picker-typing-font-weight: 700;
+    --base-date-picker-content-border-width: 2px;
+    --base-date-picker-content-focus-border-color: #0047ff;
+    --base-date-picker-content-min-width: 20rem;
+    --base-date-picker-content-width: fit-content;
+}

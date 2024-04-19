@@ -1,0 +1,105 @@
+{
+    "name": "@nixjs23n6/date-picker",
+    "version": "1.0.0",
+    "description": "A modern React Datepicker",
+    "main": "lib/cjs/index.js",
+    "module": "lib/esm/index.js",
+    "types": "lib/types/index.d.ts",
+    "keywords": [
+        "react",
+        "react-datepicker",
+        "datepicker",
+        "date-picker",
+        "calendar",
+        "daterangepicker",
+        "date-range-picker",
+        "react-component",
+        "typescript",
+        "web"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nixjs/date-picker.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "lib",
+        "src",
+        "README.md"
+    ],
+    "author": "nghinv",
+    "license": "MIT",
+    "sideEffects": false,
+    "scripts": {
+        "clean": "rimraf lib/*",
+        "build:pre": "run-s clean",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:esm": "tsc -p tsconfig.esm.json",
+        "build:mini:cjs": "swc lib/cjs --out-dir lib",
+        "build:mini:esm": "swc lib/esm --out-dir lib",
+        "build:mini": "run-s build:mini:cjs build:mini:esm",
+        "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output lib/style/css/ --batch --batch-suffix \".min\" \"lib/style/css/*.css\" \"!lib/style/css/*.min.css\"",
+        "css-compile": "sass --style expanded --no-source-map --no-error-css src/scss/:lib/style/css/",
+        "css-copy": "copyfiles -u 1 src/scss/**/* lib/style",
+        "build:css": "run-s css-copy css-compile css-minify",
+        "build": "run-s build:pre build:cjs build:esm build:mini build:css",
+        "lint": "eslint 'src/**/*.{ts,tsx,js,jsx}'",
+        "format:check": "prettier --check --loglevel error 'src/**/*.{ts,tsx,scss,css}'",
+        "format:write": "prettier --write 'src/**/*.{ts,tsx,scss,css}'"
+    },
+    "peerDependencies": {
+        "classnames": ">=2",
+        "date-fns": "^2.30.0",
+        "react": ">=16",
+        "react-dom": ">=16"
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.18.2",
+        "@swc/cli": "^0.1.63",
+        "@swc/core": "^1.3.90",
+        "@types/eslint": "^8.4.5",
+        "@types/eslint-plugin-prettier": "^3.1.0",
+        "@types/jest": "^28.1.4",
+        "@types/node": "^18.0.0",
+        "@types/prettier": "^2.6.3",
+        "@types/react": "^18.0.14",
+        "@types/react-transition-group": "^4.4.10",
+        "@typescript-eslint/eslint-plugin": "^5.30.3",
+        "@typescript-eslint/parser": "^5.30.3",
+        "classnames": "^2.3.2",
+        "clean-css-cli": "^5.6.2",
+        "copyfiles": "^2.4.1",
+        "date-fns": "^2.30.0",
+        "eslint": "^8.19.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "jest": "^28.1.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "rimraf": "^3.0.2",
+        "sass": "^1.63.6",
+        "ts-jest": "^28.0.5",
+        "tslib": "^2.4.0",
+        "@popperjs/core": "^2.11.8",
+        "react-popper": "^2.3.0",
+        "react-transition-group": "^4.4.5",
+        "typescript": "^4.7.4"
+    },
+    "engines": {
+        "node": ">= 14"
+    },
+    "eslintConfig": {
+        "extends": [
+            "plugin:storybook/recommended"
+        ]
+    },
+    "dependencies": {
+        "@popperjs/core": ">=2.11.8",
+        "react-popper": ">=2.3.0",
+        "react-transition-group": ">=4.4.5"
+    }
+}

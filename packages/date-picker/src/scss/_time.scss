@@ -1,0 +1,91 @@
+.time-picker {
+    display: inline-block;
+    &-content {
+        display: flex;
+        align-items: center;
+    }
+    &-group {
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &-diff {
+        margin-left: var(--base-time-picker-button-margin-left, 0.5rem);
+        margin-right: var(--base-time-picker-button-margin-right, 0.5rem);
+    }
+    &-up,
+    &-down {
+        cursor: pointer;
+        height: var(--base-time-picker-button-height, 1.5rem);
+        width: var(--base-time-picker-button-width, 100%);
+        border-width: var(--base-time-picker-button-border-style, 0);
+        border-style: var(--base-time-picker-button-border-style, solid);
+        border-color: var(--base-time-picker-button-border-color);
+        border-radius: var(--base-time-picker-button-radius, 0.25rem);
+        background-color: var(--base-time-picker-button-background-color);
+        background-size: var(--base-time-picker-button-background-size, 100%);
+        background-position: var(--base-time-picker-button-background-position, center);
+        background-repeat: var(--base-time-picker-button-background-repeat, no-repeat);
+        font-size: var(--base-time-picker-button-size);
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+
+        &::before,
+        &::before {
+            content: '';
+            transform: rotate(180deg);
+            transition: transform var(--base-transition-fast) linear;
+            background-image: var(
+                --base-time-picker-button-arrow-background-image,
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBwb2ludHM9IjcuMjkzIDQuNzA3IDE0LjU4NiAxMiA3LjI5MyAxOS4yOTMgOC43MDcgMjAuNzA3IDE3LjQxNCAxMiA4LjcwNyAzLjI5MyA3LjI5MyA0LjcwNyIvPgo8L3N2Zz4K')
+            );
+            background-position: var(--base-time-picker-button-arrow-background-position, center);
+            background-repeat: var(--base-time-picker-button-arrow-background-repeat, no-repeat);
+            background-size: var(--base-time-picker-button-arrow-background-size, 100%);
+            inset: 0;
+            position: absolute;
+        }
+        &--disabled {
+            cursor: default;
+        }
+    }
+    &-up {
+        &::before {
+            transform: var(--base-time-picker-button-up-rotate, rotate(0deg));
+        }
+    }
+    &-down {
+        &::before {
+            transform: var(--base-time-picker-button-down-rotate, rotate(180deg));
+        }
+    }
+    &-input {
+        margin: 0;
+        background-color: var(--base-time-picker-input-background-color);
+        border-width: var(--base-time-picker-input-border-width, 1px);
+        border-style: var(--base-time-picker-input-border-style, solid);
+        border-color: var(--base-time-picker-input-border-color);
+        border-radius: var(--base-time-picker-input-radius, 0.25rem);
+        font-size: var(--base-time-picker-input-font-size, 0.875rem);
+        padding-left: var(--base-time-picker-input-padding-left, 0.75rem);
+        padding-right: var(--base-time-picker-input-padding-right, 0.75rem);
+        min-height: var(--base-time-picker-input-min-height, 2rem);
+        font-weight: var(--base-time-picker-input-font-weight, 400);
+        line-height: var(--base-time-picker-input-line-height);
+        width: var(--base-time-picker-input-width, 3rem);
+        max-width: var(--base-time-picker-input-max-width, auto);
+        color: var(--base-time-picker-input-color);
+        display: var(--base-time-picker-input-display, block);
+        margin-top: var(--base-time-picker-input-margin-top, 0.5rem);
+        margin-bottom: var(--base-time-picker-input-margin-bottom, 0.5rem);
+        text-align: center;
+        outline: 0;
+        box-sizing: border-box;
+        &:hover {
+            border-width: var(--base-time-picker-button-hover-border-width, 1px);
+            border-style: var(--base-time-picker-button-hover-border-style, solid);
+            border-color: var(--base-time-picker-button-hover-border-color);
+        }
+    }
+}
