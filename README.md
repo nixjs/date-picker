@@ -19,5 +19,5 @@ yarn add @nixjs23n6/date-picker
 ```
 
 ```shell [bun]
-bun add --dev husky
+bun add @nixjs23n6/date-picker 
 ```
